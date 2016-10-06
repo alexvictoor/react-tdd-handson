@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "types": [
+            "mocha", "chai"
+        ]
+    },
+    
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
