@@ -1,3 +1,8 @@
 import * as React from "react";
 
-export default () => <div/>
+interface HelloProps {
+  dude: string;
+}
+
+
+export default ({dude} : HelloProps) => <div>Hello world {dude}!</div>
