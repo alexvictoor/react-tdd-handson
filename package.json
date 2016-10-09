@@ -15,7 +15,8 @@
     "jquery": "^3.1.0",
     "react": "^15.1.0",
     "react-bootstrap": "^0.30.2",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "remarkable": "^1.7.1"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",

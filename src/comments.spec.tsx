@@ -2,16 +2,15 @@ import { expect } from 'chai';
 import * as React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import Comment, { Header, Content } from './comments';
+import { Comment, Header } from './comments';
 
 describe('Comment', () => { 
 
     it('should generate an header', () => {
  
       const wrapper = shallow(
-        <Comment 
+        <Comment
           author="bob" 
-          content="test first ftw!" 
           date={new Date(2016, 10, 8, 17, 0)} 
         />
       );
@@ -20,29 +19,24 @@ describe('Comment', () => {
 
     });
 
-     it('should generate a content', () => {
+     it('should generate content', () => {
  
       const wrapper = shallow(
-        <Comment 
-          author="bob" 
-          content="test first ftw!" 
-          date={new Date(2016, 10, 8, 17, 0)} 
-        />
+        <Comment author="bob" date={new Date(2016, 10, 8, 17, 0)}>
+          test first ftw!
+        </Comment>
       );
 
-      expect(wrapper.find(Content)).to.have.length(1);
-      expect(wrapper.find(Content).at(0).props()).to.be.deep.equals({ content: "test first ftw!" })
+      expect(wrapper.text()).to.contain("test first ftw!");
   
     });
 
     it('should generate an header with the author and the date', () => {
  
       const wrapper = shallow(
-        <Comment 
-          author="bob" 
-          content="test first ftw!" 
-          date={new Date(2016, 10, 8, 17, 0)} 
-        />
+        <Comment author="bob" date={new Date(2016, 10, 8, 17, 0)}>
+          test first ftw!
+        </Comment>
       );
  
       expect(wrapper.find(Header)).to.have.length(1);

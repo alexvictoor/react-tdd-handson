@@ -40,8 +40,8 @@ You can use "{param_name}" syntax within your tsx template to use a param
 
 # Step 3
 We will now start to write more complex components, components 
-that will help us display comments (such as comments on a blog, wiki, whatever...)
-
+that will help us display comments (such as comments on a blog, wiki, whatever...)  
+*Starting from now this is strongly inspired by official Facebook React tutorial*  
 Open files comments.tsx and comments.spec.tsx in your ide.
 
 Unskip test "should generate an header". It fails because of the following expectation:
@@ -56,9 +56,13 @@ When shallow rendering a "Comment" the embedded "Header" is not rendered.
 Replace "shallow" by "mount", now the test cannot succeed since everything is rendered.
 
 # Step 4
-Unskip test "should generate a content".  
+Unskip test "should generate content" and make it pass  
 
-Tips: If you encounter a TypeScript compilation error 
+**Tips**  
+React inject in "props" a special property "children" 
+
+**Tips**  
+If you encounter a TypeScript compilation error 
 "JSX expressions must have one parent element", 
 wrap the result of your function with a div
 
@@ -71,14 +75,36 @@ child element found using SELECTOR. Also do not forget to use mocha's deep equal
 
 Make the test pass!
 
-You can also improve test "should generate a content" the same way.
+# Step 6
+We will now build a CommentList component 
+that will display a list of comments.
+The CommentList component will generate a container div element and will leverage on the existing Comment component.
+Feel free to write a CommentListProps interface and of course you can do TDD :)  
+By the way below some comments data you can use for testing purposes:
 
+    const data = [
+      {id: 1, author: "Pete Hunt", text: "This is one comment"},
+      {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
+    ]; 
 
+**Tips** 
+Take care of warning messages printed by React, they are important!
 
+# Step 7
+We will now add a markdown feature to our Comment component!
+The Remarkable lib is already set up.
+To covert a markdown string into an HTML chunk you need to 
+write something that looks like this:
 
+    const md = new Remarkable();
+    md.render(markdownString);
 
+Try to replace *{children}* by *{md.render(children.toString())}*...  
+To solve this issue checkout this page:
+https://facebook.github.io/react/tips/dangerously-set-inner-html.html 
 
-
-
-
- 
+# Step 8 TBD
+Until now all the React components we have written were simple lambda functions.
+This kind of components are called stateless components. 
+React components can also be stateful. Stateful components have an internal state and 
+can have methods called during the component lifecycle.
