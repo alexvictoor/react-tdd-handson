@@ -8,9 +8,7 @@ describe('Hello', () => {
 
     it('should say Hello!', () => {
  
-      const wrapper = shallow(<Hello dude="Bob"/>);
-
-      expect(wrapper.text()).to.be.equal("Hello world Bob!");
+      const wrapper = shallow(<Hello/>);
 
     });
 

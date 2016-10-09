@@ -68,7 +68,7 @@ wrap the result of your function with a div
 
 # Step 5
 Get back to test "should generate an header" and rename it to "should generate an header with the author and the date".
-Change the test to assess the fact that the header as proper props, with the author and date coming from the Comment component.  
+Change the test to assess the fact that the header has proper props, with the author and date coming from the Comment component.  
 
 **Tips:** you can use Enzyme's *wrapper.find(SELECTOR).at(0).props()* returns the props of the first wrapper's 
 child element found using SELECTOR. Also do not forget to use mocha's deep equal.
@@ -93,7 +93,7 @@ Take care of warning messages printed by React, they are important!
 # Step 7
 We will now add a markdown feature to our Comment component!
 The Remarkable lib is already set up.
-To covert a markdown string into an HTML chunk you need to 
+To convert a markdown string into an HTML chunk you need to 
 write something that looks like this:
 
     const md = new Remarkable();
@@ -103,7 +103,7 @@ Try to replace *{children}* by *{md.render(children.toString())}*...
 To solve this issue checkout this page:
 https://facebook.github.io/react/tips/dangerously-set-inner-html.html 
 
-# Step 8 TBD
+# Step 8 - TBD
 Until now all the React components we have written were simple lambda functions.
 This kind of components are called stateless components. 
 React components can also be stateful. Stateful components have an internal state and 
