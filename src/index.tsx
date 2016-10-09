@@ -1,8 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import Hello from "./Hello"; 
 
 ReactDOM.render((
-     <p>Hello!</p>
+     <Hello dude="bob"/>
      ),
      document.getElementById("main")
 );
