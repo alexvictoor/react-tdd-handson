@@ -5,4 +5,4 @@ interface HelloProps {
 }
 
 
-export default () => <div/>
+export default () => <div>Hello!</div>

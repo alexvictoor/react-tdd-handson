@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import Hello from "./Hello"; 
 
 ReactDOM.render((
-     <Hello dude="bob"/>
+     <Hello />
      ),
      document.getElementById("main")
 );
