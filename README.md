@@ -20,7 +20,16 @@ With enzyme and mocha you just need to write:
 
     expect(wrapper.text()).to.be.equal("Hello world!");
 
-The test will fail, you just need to modify Hello.tsx to make it pass
+The test will fail, you just need to modify Hello.tsx to make it pass!
+
+**Note**  
+Most React components are stateless components, simple functions that live in JSX/TSX files, defines as follow:
+
+    const MyComponent = (myProps: PROPS_TYPE) => (
+        <div>
+           ...content...
+        </div>
+    )
 
 # Step 2
 Now our component will accept params. These params are called props in React language.
