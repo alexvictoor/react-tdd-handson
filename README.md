@@ -4,6 +4,7 @@ Obviously this hands on is made for TDD practitioners :)
 
 # Installation
 Clone this repo and then launch "npm install"
+webpack-dev-server can also be useful (even if not mandatory). To install it simply type npm i -g webpack-dev-server
 That's all folks!
 
 To check that everything works properly you can:
