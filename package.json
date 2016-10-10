@@ -29,6 +29,7 @@
     "@types/react-dom": "^0.14.17",
     "chai": "^3.5.0",
     "enzyme": "^2.4.1",
+    "jsdom": "^9.6.0",
     "json-loader": "^0.5.4",
     "karma": "^1.2.0",
     "karma-chai": "^0.1.0",
