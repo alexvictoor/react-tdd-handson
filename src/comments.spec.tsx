@@ -2,7 +2,8 @@ import { expect } from 'chai';
 import * as React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import { Comment, Header } from './comments';
+import { Comment, CommentData, Header, CommentBox, CommentLoader } from './comments';
+
 
 describe('Comment', () => { 
 
@@ -44,4 +45,25 @@ describe('Comment', () => {
 
     });
 
+});
+
+describe('CommentBox', () => { 
+
+    it('should generate a comment list', () => {
+ 
+      const loader: CommentLoader = (cb) => cb([
+        {id: 1, author: "Pete Hunt", text: "This is one comment", date: new Date(2016, 10, 8, 17, 0)},
+        {id: 2, author: "Jordan Walke", text: "This is *another* comment", date: new Date(2016, 10, 8, 17, 42)}
+      ]); 
+
+      const wrapper = mount(
+        <CommentBox
+          loader={loader}
+        />
+      );
+
+      expect(wrapper.find(Comment)).to.have.length(2);
+      expect(wrapper.find(Comment).at(0).props()).to.be.deep.equal({author: "Pete Hunt", date: new Date(2016, 10, 8, 17, 0)})
+
+    });
 });

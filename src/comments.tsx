@@ -13,11 +13,7 @@ interface CommentProps extends HeaderProps {
   children?: any;
 }
 
-interface Comment {
-  id: number;
-  author: string;
-  text: string;
-}
+
 
 export const Header = ({author, date}: HeaderProps) => (
   <h1>Author: {author} {date.getMonth()}-{date.getFullYear()}</h1>
@@ -68,13 +64,14 @@ export const Comment = (props: CommentProps) => (
 );
 
 interface CommentListProps {
-  comments: CommentProps[]
+  comments: CommentData[]
 }
 
 const CommentList = ({comments}: CommentListProps) => {
   const commentNodes = comments.map(
-    (comment) => (
+    (comment) => (  
         <Comment 
+          key={comment.id}
           author={comment.author} 
           date={comment.date}
         />
@@ -89,28 +86,48 @@ const CommentList = ({comments}: CommentListProps) => {
 }
 
 
-interface CommentBox {
-  loader: () => any[]
+
+
+export interface CommentData {
+  id: number;
+  date: Date;
+  author: string;
+  text: string;
 }
 
-class CommentBox extends React.Component<CommentProps, any> {
+interface Callback {
+  (comments: CommentData[]): void
+}
+
+
+export interface CommentLoader {
+  (cb: Callback): void
+}
+
+interface CommentBoxProps {
+  loader: CommentLoader;
+}
+interface CommentBoxState {
+  comments: CommentData[];
+}
+
+
+export class CommentBox extends React.Component<CommentBoxProps, CommentBoxState> {
   
   constructor(props : CommentProps) {
     super(props);
-    this.state = {data: []};
+    this.state = { comments: [] };
   } 
   
   componentDidMount() : void {
-    this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
+    this.props.loader(comments => this.setState({ comments }));
   }
   
   render() {
     return (
-      <div className="commentBox">
+      <div>
         <h1>Comments</h1>
-        <CommentList data={this.state.data} />
-        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+        <CommentList comments={this.state.comments} />
       </div>
     );
   }
