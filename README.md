@@ -64,7 +64,8 @@ Make it green!
 **Note:**  
 Notice in previous test the usage of Enzyme's shallow feature.  
 When shallow rendering a "Comment" the embedded "Header" is not rendered.
-Replace "shallow" by "mount", now the test cannot succeed since everything is rendered.
+Indeed there is no browser involve in the test, not even ant fake DOM. 
+If you replace "shallow" by "mount", everything will be rendered (here using library jsDom that does not require any browser, not even PhantomJS).
 
 # Step 4
 Unskip test "should generate content" and make it pass  
