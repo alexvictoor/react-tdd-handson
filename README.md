@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/alexvictoor/react-tdd-handson.svg?branch=master)](https://travis-ci.org/alexvictoor/react-tdd-handson)
 
 The purpose of this hands on is to get a first glance at ReactJS and its ecosystem.
 Obviously this hands on is made for TDD practitioners :)
