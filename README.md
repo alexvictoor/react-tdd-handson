@@ -110,5 +110,5 @@ Until now all the React components we have written were simple lambda functions.
 This kind of components are called stateless components.  
 React components can also be stateful. Stateful components have an internal state and 
 can have methods called during the component lifecycle.  
-In a real life application most components can be stateless (especially using redux), so you already enough about React to get you started :)
+In a real life application most components can be stateless (especially using redux), so you already enough about React to get you started :)  
 If you want to learn more about React, you can jump directly to the middle of [Facebook tutorial](https://facebook.github.io/react/docs/tutorial.html#hook-up-the-data-model) . You just need to translate the code into TypeScript :)
