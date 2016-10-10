@@ -35,6 +35,7 @@ Notice we get a compilation error. Actually this is a good thing, we benefits fr
 So to repair everything you need to:
 - write an interface "HelloProps"
 - modify Hello component to use this interface as the type of its parameter
+- fix compilation error in index.tsx
 
 **Tips**  
 You can use "{param_name}" syntax within your tsx template to use a param
