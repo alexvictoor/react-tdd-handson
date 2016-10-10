@@ -1,8 +1,7 @@
 import * as React from "react";
 
-declare class Remarkable {
-  render(param: any) : any;
-}
+declare const require: (module: string) => any;
+const Remarkable = require("remarkable");
 
 interface HeaderProps {
   author: string,
