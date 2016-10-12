@@ -45,6 +45,7 @@
     "source-map-loader": "^0.1.5",
     "ts-loader": "^0.8.2",
     "ts-node": "^1.4.1",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
   }
 }

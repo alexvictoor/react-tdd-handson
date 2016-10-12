@@ -4,15 +4,15 @@ The purpose of this hands on is to get a first glance at ReactJS and its ecosyst
 Obviously this hands on is made for TDD practitioners :)
 
 # Installation
-Clone this repo and then launch "npm install"
-webpack-dev-server can also be useful (even if not mandatory). To install it simply type npm i -g webpack-dev-server
-That's all folks!
+Clone this repo and then launch "npm install".
+You can also install globally webpack and webpack-dev-server, but this is optionnal.
 
 To check that everything works properly you can:
  - launch "npm test". You should see a green message saying that one test is successful
- - launch "webpack-dev-server" and open in your browser URL http://localhost:8080
+ - launch "webpack-dev-server" and open in your browser URL http://localhost:8080 (if not installed globally you can launch it with command node  node_modules/webpack-dev-server/bin/webpack-dev-server.js)
 
-It is highly recommended that you keep either a console with "npm test" running or you use VSCode task runner (convenient on a laptop screen) 
+It is highly recommended that you keep either a console with "npm test" running or you use VSCode task runner (convenient on a laptop screen)
+Note: after a TypeScript compilation error you might need to restart "npm test". If it becomes too annoying you can use instead "npm test:karma" which is slower but more reliable. 
 
 # Step 1
 Change expectations in file Hello.spec.tsx.
@@ -60,16 +60,17 @@ Unskip test "should generate an header". It fails because of the following expec
 
     expect(wrapper.find(Header)).to.have.length(1);
 
-Make it green!
+Do not change the test but make it pass!
 
 **Note:**  
 Notice in previous test the usage of Enzyme's shallow feature.  
 When shallow rendering a "Comment" the embedded "Header" is not rendered.
-Indeed there is no browser involve in the test, not even ant fake DOM. 
+Indeed there is no browser involve in the test, not even a fake DOM implementation such as jsDom. 
 If you replace "shallow" by "mount", everything will be rendered (here using library jsDom that does not require any browser, not even PhantomJS).
 
 # Step 4
-Unskip test "should generate content" and make it pass  
+Unskip test "should generate content" and make it pass    
+(like in the previous step, do not modify the test itself)
 
 **Tips**  
 React inject in "props" a special property "children" 
@@ -83,10 +84,10 @@ wrap the result of your function with a div
 Get back to test "should generate an header" and rename it to "should generate an header with the author and the date".
 Change the test to assess the fact that the header has proper props, with the author and date coming from the Comment component.  
 
-**Tips:** you can use Enzyme's *wrapper.find(SELECTOR).at(0).props()* returns the props of the first wrapper's 
-child element found using SELECTOR. Also do not forget to use mocha's deep equal.
+**Tips:** you can use Enzyme in several ways. For example *wrapper.find(SELECTOR).at(0).props()* returns the props of the first wrapper's 
+child element found using SELECTOR. If you use props(), do not forget to use mocha's deep equal.
 
-Make the test pass!
+This may sound obvious but... make the test pass!
 
 # Step 6
 We will now build a CommentList component 
@@ -95,7 +96,7 @@ The CommentList component will generate a container div element and will leverag
 Feel free to write a CommentListProps interface and of course you can do TDD :)  
 By the way below some comments data you can use for testing purposes:
 
-    const data: CommentData = [
+    const data: CommentData[] = [
       {id: 1, author: "Pete Hunt", text: "This is one comment", date: new Date(2016, 10, 8, 17, 0)},
       {id: 2, author: "Jordan Walke", text: "This is *another* comment", date: new Date(2016, 10, 8, 17, 42)}
     ]; 
