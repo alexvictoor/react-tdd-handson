@@ -56,10 +56,10 @@ export const Comment = (props: CommentProps) => (
 )
 */
 
-export const Comment = (props: CommentProps) => (
+export const Comment = ({author, date, children}: CommentProps) => (
   <div>
-    <Header {...props} />
-    {props.children}
+    <Header author={author} date={date} />
+    {children}
   </div>
 );
 
@@ -72,7 +72,8 @@ const CommentList = ({comments}: CommentListProps) => {
     (comment) => (  
         <Comment 
           key={comment.id}
-          {...comment}
+          author={comment.author}
+          date={comment.date}
         />
         
       )
