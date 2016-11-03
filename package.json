@@ -57,7 +57,13 @@
     ],
     "exclude": [
       "node_modules/",
+<<<<<<< 893906da14016ad4a0bf0786d88b870c178e1dc9
       "dist/"
+=======
+      "dist/",
+      "src/**/*.spec.ts",
+      "src/**/*.spec.tsx"
+>>>>>>> add coverage (nyc)
     ],
     "extension": [
       ".ts",
